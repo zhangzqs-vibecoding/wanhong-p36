@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>万虹 P36</title>
+  <link rel="stylesheet" href="p36.css">
+  <script type="module" src="p36.js"></script>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>万虹 P36</h1>
+      <div>
+        <span id="power"></span>
+        <button id="sound" type="button" aria-pressed="false">开启声音</button>
+        <button id="microphone" type="button" aria-pressed="false">开启麦克风</button>
+      </div>
+    </header>
+    <div class="display-panel">
+      <div id="shortcuts" class="side-keys" role="group" aria-label="P36 学习快捷键"></div>
+      <canvas id="screen" width="800" height="480" tabindex="0" aria-label="P36 触摸屏"></canvas>
+      <div id="side-controls" class="side-keys" role="group" aria-label="P36 翻页与音量"></div>
+      <div id="directions" role="group" aria-label="P36 机身方向键"></div>
+      <div id="device-controls" class="key-row" role="group" aria-label="P36 机身按键"></div>
+    </div>
+    <section id="game-controls" aria-label="NES 手柄" hidden>
+      <p>手柄 1：方向键移动，Z 对应 A，X 对应 B，右 Shift 选择，Enter 开始。</p>
+      <div id="game-buttons" class="key-row"></div>
+      <p>手柄 2：WASD 移动，F 对应 A，G 对应 B，Q 选择，E 开始。</p>
+      <div id="game-buttons-two" class="key-row" role="group" aria-label="NES 手柄 2"></div>
+      <p>Esc 返回游戏列表。</p>
+    </section>
+    <div class="keyboard-scroll">
+      <div id="keyboard" role="group" aria-label="P36 键盘"></div>
+    </div>
+    <div id="mouse-buttons" class="key-row" role="group" aria-label="P36 鼠标键"></div>
+    <section class="media" aria-label="存储卡">
+      <label for="image">选择 SD 卡镜像</label>
+      <input type="file" id="image" accept=".img,.ima,.bin">
+      <label for="directory">从本地目录加载</label>
+      <input type="file" id="directory" webkitdirectory multiple>
+      <p id="status" role="status">请选择包含 sword_elfd.bin 的 P36 FAT32 镜像。</p>
+    </section>
+  </main>
+</body>
+</html>

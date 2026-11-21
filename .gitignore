@@ -1,0 +1,14 @@
+/target/
+/web/pkg/
+/sdcard/
+/.playwright-cli/
+*.img
+*.img.gz
+*.img.state.sqlite3*
+/emu/*.sqlite3*
+/emu/*.bin
+/emu/*.amr
+/emu/*.mp3
+/emu/*.wav
+/emu/nes_audio/*.so
+__pycache__/

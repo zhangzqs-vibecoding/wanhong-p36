@@ -1,0 +1,90 @@
+:root {
+  color-scheme: light;
+  font-family: "Noto Sans CJK SC", system-ui, sans-serif;
+  color: #18202a;
+  background: #e4e9ee;
+}
+body { margin: 0; padding: clamp(0.5rem, 3vw, 2rem); }
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: clamp(0.65rem, 2vw, 1.5rem);
+  background: #f4f6f8;
+  border: 1px solid #b5c0cc;
+  border-radius: 1rem;
+}
+header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+h1 { margin: 0 0 0.55rem; font-size: clamp(1.15rem, 3vw, 1.65rem); }
+button {
+  font: inherit;
+  font-size: clamp(0.65rem, 1.8vw, 0.88rem);
+  cursor: pointer;
+  color: inherit;
+  background: #fff;
+  border: 1px solid #9ba7b4;
+  border-radius: 0.35rem;
+  min-height: 2.3rem;
+  padding: 0.25rem 0.35rem;
+  touch-action: manipulation;
+}
+button[data-pressed="true"] { background: #d4e9ff; border-color: #2864a0; }
+button:focus-visible, canvas:focus-visible, input:focus-visible { outline: 3px solid #2864a0; outline-offset: 2px; }
+canvas {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #161d27;
+  border-radius: 0.5rem;
+  image-rendering: pixelated;
+  touch-action: none;
+}
+.display-panel {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr) 5.5rem;
+  grid-template-areas: "shortcuts screen side" "controls controls controls";
+  align-items: center;
+  gap: 0.5rem;
+}
+#screen { grid-area: screen; }
+.side-keys { display: grid; gap: 0.35rem; }
+#shortcuts { grid-area: shortcuts; }
+#side-controls { grid-area: side; }
+#directions {
+  grid-area: controls;
+  justify-self: start;
+  display: grid;
+  grid-template-columns: repeat(3, 2.3rem);
+  grid-template-areas: ". up ." "left down right";
+  gap: 0.2rem;
+}
+#directions button:nth-child(1) { grid-area: up; }
+#directions button:nth-child(2) { grid-area: left; }
+#directions button:nth-child(3) { grid-area: down; }
+#directions button:nth-child(4) { grid-area: right; }
+.key-row { display: flex; gap: clamp(0.12rem, 0.7vw, 0.4rem); margin-top: 0.35rem; }
+.key-row button { flex: 1; min-width: 0; }
+#device-controls {
+  grid-area: controls;
+  justify-self: end;
+  margin-top: 0;
+}
+#device-controls button { min-width: 2.7rem; white-space: nowrap; }
+#game-controls { max-width: 24rem; margin: 0.65rem auto; }
+#game-controls p { margin: 0; font-size: 0.85rem; }
+#game-controls .key-row + p { margin-top: 0.45rem; }
+.keyboard-scroll { overflow-x: auto; padding: 0.25rem; margin: 0 -0.25rem; }
+#keyboard { min-width: 36rem; }
+#keyboard button { padding-inline: 0.15rem; white-space: nowrap; }
+#keyboard .key-row:last-child { margin-left: 78%; }
+#mouse-buttons { max-width: 10rem; margin-inline: auto; }
+.media { display: grid; grid-template-columns: auto 1fr; gap: 0.5rem; margin-top: 0.8rem; font-size: 0.86rem; }
+.media input { min-width: 0; }
+#status { grid-column: 1 / -1; margin: 0; }
+@media (max-width: 680px) {
+  .display-panel {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "screen" "shortcuts" "side" "controls";
+  }
+  #shortcuts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  #side-controls { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}

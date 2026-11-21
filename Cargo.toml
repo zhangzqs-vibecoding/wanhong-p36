@@ -1,0 +1,9 @@
+[workspace]
+members = ["crates/p36-core", "crates/p36-web"]
+resolver = "2"
+
+[workspace.package]
+edition = "2021"
+
+[profile.release]
+lto = "thin"
